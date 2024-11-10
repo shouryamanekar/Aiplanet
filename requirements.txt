@@ -1,0 +1,6 @@
+streamlit
+llama-index
+cassandra-driver=
+openai
+boto3
+python-dotenv
