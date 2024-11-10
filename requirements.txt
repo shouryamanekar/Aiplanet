@@ -1,6 +1,6 @@
 streamlit
 llama-index
-cassandra-driver=
+cassandra-driver
 openai
 boto3
 python-dotenv

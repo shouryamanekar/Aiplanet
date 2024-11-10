@@ -20,10 +20,9 @@ load_dotenv()
 def create_datastax_connection():
     
     cloud_config = {'secure_connect_bundle': 'secure-connect-aiplanet.zip'}
-    with open("aiplanet_astra_test_token.json") as f:
-        secrets = json.load(f)
-    CLIENT_ID = secrets["clientId"]
-    CLIENT_SECRET = secrets["secret"]
+    
+    CLIENT_ID = os.getenv("CLIENT_ID")
+    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
     auth_provider = PlainTextAuthProvider(CLIENT_ID, CLIENT_SECRET)
     cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
@@ -32,8 +31,8 @@ def create_datastax_connection():
 
 
 def main():
-    st.set_page_config(page_title="Chat with your PDF using Llama 2", page_icon="🦙")
-    st.header("🦙 Chat with your PDF using Llama 2 & Llama Index")
+    st.set_page_config(page_title="AiPlanet", page_icon="🦙")
+    st.header("AiPlanet")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
